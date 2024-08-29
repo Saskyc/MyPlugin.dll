@@ -1,0 +1,10 @@
+Do not hate my foreach loops it works alright and yk what fuck you again:
+
+foreach (EffectType AAGiveEffect in MyPlugin.Instance.Config.AmnesticA.CustomItemEffectTypes) 
+            {
+                foreach(float AAEffectTime in MyPlugin.Instance.Config.AmnesticA.CustomItemEffectTime)
+                    foreach (byte AAEffectIntensity in MyPlugin.Instance.Config.AmnesticA.CustomItemEffectIntensity)
+                        foreach (bool AAEffectAddDuration in MyPlugin.Instance.Config.AmnesticA.CustomItemEffectAddDuration)
+                            foreach (float AALateDuration in MyPlugin.Instance.Config.AmnesticA.CustomItemEffectAddLateDuration)
+                                Timing.CallDelayed(AALateDuration, () => ev.Player.EnableEffect(AAGiveEffect, AAEffectIntensity, AAEffectTime, AAEffectAddDuration));
+            }

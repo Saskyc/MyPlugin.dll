@@ -1,0 +1,27 @@
+omg omg I found new thing from Foxy the furry the developer of UCR!!!!!
+
+Log.Debug("Sus");
+
+This is automatically checked if player set debug option to true idk how but it works.
+So I should use it more :fire:.
+
+
+
+
+//This is how I show the hint
+PersonalElementDisplay display = new PersonalElementDisplay(StringBuilderPool.Shared.Rent());
+
+            ev.Player.GameObject.AddComponent<UIManager>()._mainDisplay = display;
+
+            //This will delete the hint after 5f seconds float.
+            Timing.CallDelayed(5f, () => 
+            {
+                if (ev.Player.GameObject.TryGetComponent<UIManager>(out UIManager display2))
+                {
+                    PersonalElementDisplay elementsui = display2._mainDisplay as PersonalElementDisplay;
+                    elementsui.Elements.RemoveAt(0);
+                }
+            });
+
+            MyPlugin.Instance.SomeElement["MyEpicKey"] = $"Hello {ev.Player.DisplayNickname}"; // here I put what I want it to say
+            new HelloWorldElement();
