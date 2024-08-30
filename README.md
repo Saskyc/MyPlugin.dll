@@ -58,3 +58,10 @@ You can change it by adding somewhere in your schematic name 2 letters like in e
 ### Bin
 Bin is for people to get things from it mainly used for ClassD to have fun RP too and not boredom it is in the files.
 This plugin mainly uses MER dependency which will also be in releases.
+
+### Door Opening
+Door opens only when you press epic door button
+
+### Keycard information
+You can make people see information who is the owner of keycards
+but when someone picks up keycard who does not have owner yet they will be the new owner.
