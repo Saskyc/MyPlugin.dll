@@ -1,5 +1,5 @@
 # MyPlugin.dll
-![GitHub Downloads (all assets, all releases)](https://img.shields.io/github/downloads/Saskyc/MyPlugin.dll/total)
+![GitHub Downloads (all assets, all releases)](https://img.shields.io/github/downloads/Saskyc/MyPlugin.dll/total) ![GitHub Release](https://img.shields.io/github/v/release/Saskyc/MyPlugin.dll)
 
 ### Description
 MyPlugin is aimed at bringing some RP features for players.
