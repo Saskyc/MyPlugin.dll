@@ -20,6 +20,7 @@ SCP-035 exists but me lazy so no config
 
 ### Custom Emotes
 
+https://www.youtube.com/watch?v=h62CoXCAb44
 Okay this is the greatest feature of them all. You can add your Emotes and edit permissions of those emotes.
 SCPs are not in the permissions but enough people would ask for this feature it will be added.
 
