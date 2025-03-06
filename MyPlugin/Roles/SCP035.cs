@@ -1,27 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Exiled.API.Features;
-using Exiled.API.Features.Attributes;
+﻿using Exiled.API.Features.Attributes;
 using Exiled.API.Features.Spawn;
 using Exiled.CustomRoles.API.Features;
-using Exiled.Events;
 using UnityEngine;
 using MEC;
-using Exiled.CustomItems;
 using PlayerRoles;
 using Exiled.API.Enums;
 using MyPlugin.API;
-using Exiled.API.Features.Pickups;
-using PluginAPI.Commands;
-using Mirror;
 using Exiled.CustomItems.API.Features;
-using Exiled.CustomItems.API.EventArgs;
-using Exiled.Events.EventArgs.Player;
-using Exiled.Events.Handlers;
-using PluginAPI.Core;
 
 namespace MyPlugin.Roles
 {

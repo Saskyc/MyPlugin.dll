@@ -1,37 +1,9 @@
-﻿
-using System;
-using UnityEngine;
+﻿using UnityEngine;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Exiled.CustomItems.API.Features;
 using Exiled.API.Features;
 using Exiled.API.Features.Attributes;
-using UnityStandardAssets.Effects;
 using Exiled.API.Features.Spawn;
-using Exiled.API.Enums;
-using InventorySystem.Items.Usables;
-using MapEditorReborn;
-using MapEditorReborn.API.Features.Objects;
-using MapEditorReborn.API.Features;
-using MapEditorReborn.Commands.ModifyingCommands.Position;
-using MapEditorReborn.Commands.ModifyingCommands.Rotation;
-using System.IO;
-using Discord;
-using Exiled.Events.Commands.Reload;
-using MapEditorReborn.Events.Handlers;
-using YamlDotNet.Core;
-using MapEditorObject = MapEditorReborn.API.Features.Objects.MapEditorObject;
-using System.Net;
-using YamlDotNet.Serialization;
-using MapEditorReborn.API.Features.Serializable;
-using NotAnAPI.Features.UI;
-//using MyPlugin.CustomThings;
-using NorthwoodLib.Pools;
-//using NotAnAPI;
-//using NotAnAPI.API.Extensions;
-using MEC;
 
 namespace MyPlugin.CustomItems
 {
