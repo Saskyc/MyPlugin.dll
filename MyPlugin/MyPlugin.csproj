@@ -122,8 +122,7 @@
   <ItemGroup>
     <Compile Include="API\API.cs" />
     <Compile Include="API\ExcemptionType.cs" />
-    <Compile Include="Commands\Clipboard.cs" />
-    <Compile Include="Commands\Me.cs" />
+    <Compile Include="Command\Me.cs" />
     <Compile Include="Config.cs" />
     <Compile Include="CustomItems\CustomItem1.cs" />
     <Compile Include="CustomItems\Training.cs" />
@@ -142,10 +141,6 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Information.txt" />
-    <Content Include="NoteToDevelopers.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

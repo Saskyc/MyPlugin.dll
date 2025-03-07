@@ -11,6 +11,7 @@ using InventorySystem.Items.Coin;
 using MyPlugin.CustomItems;
 using UnityEngine;
 using MyPlugin.API;
+using PlayerRoles;
 
 namespace MyPlugin
 {
@@ -328,12 +329,23 @@ namespace MyPlugin
         [Description("When person sucessfully plays animation it will tell them (String type)")]
         public string PlayedAnimation { get; set; } = "You played animation named:";
 
+        [Description(
+            "List of dictionaries with the permission and role after. Example I want only guards to use schematics that have in name FG")]
+        public List<Dictionary<string, RoleTypeId>> Permission = new List<Dictionary<string, RoleTypeId>>
+        {
+            new Dictionary<string, RoleTypeId>
+            {
+                {"NONE", RoleTypeId.None},
+                {"FG", RoleTypeId.FacilityGuard},
+                {"SC", RoleTypeId.Scientist}
+            },
+        };
     }
 
     public class DoorButtonOpenn
     {
         [Description("Should this feature be enabled (String type)")]
-        public bool Enabled_Raycast { get; set; } = true;
+        public bool EnabledRaycast { get; set; } = true;
 
         [Description("Message to show when the player sucesfully opened door (String type)")]
         public string YesDoorMessage { get; set; } = "The door opened";
@@ -344,43 +356,24 @@ namespace MyPlugin
 
     public class KeycardInfoo
     {
-        [Description("Message to show when the player holds a Janitor keycard (string type)")]
-        public string JanitorMessage { get; set; } = "<color=#B200FF>Owner: %owner%\nDepartment of Owner: Janitor</color>";
-
-        [Description("Message to show when the player holds a Scientist keycard (string type)")]
-        public string ScientistMessage { get; set; } = "<color=#F9FF71>Owner: %owner%\nDepartment of Owner: Scientific</color>";
-
-        [Description("Message to show when the player holds a Zone Manager keycard (string type)")]
-        public string ZoneManagerMessage { get; set; } = "<color=#00FF0C>Owner: %owner%\nDepartment of Owner: Administritive</color>";
-
-        [Description("Message to show when the player holds a Research Coordinator keycard (string type)")]
-        public string ResearchCoordinatorMessage { get; set; } = "<color=#F3FF00>Owner: %owner%\nDepartment of Owner: Scientific</color>";
-
-        [Description("Message to show when the player holds a Containment Engineer keycard (string type)")]
-        public string ContainmentEngineerMessage { get; set; } = "<color=#AD7B36>Owner: %owner%\nDepartment of Owner: Scientific/Techinician</color>";
-
-        [Description("Message to show when the player holds a Guard keycard (string type)")]
-        public string GuardMessage { get; set; } = "<color=#5D5D5D>Owner: %owner%\nDepartment of Owner: OSS</color>";
-
-        [Description("Message to show when the player holds an MTF Private keycard (string type)")]
-        public string MTFPrivateMessage { get; set; } = "<color=#00FBFF>Owner: %owner%\nDepartment of Owner: MTF</color>";
-
-        [Description("Message to show when the player holds an MTF Operative keycard (string type)")]
-        public string MTFOperativeMessage { get; set; } = "<color=#0087FF>Owner: %owner%\nDepartment of Owner: MTF</color>";
-
-        [Description("Message to show when the player holds an MTF Captain keycard (string type)")]
-        public string MTFCaptainMessage { get; set; } = "<color=#002BFF>Owner: %owner%\nDepartment of Owner: MTF</color>";
-
-        [Description("Message to show when the player holds a Facility Manager keycard (string type)")]
-        public string FacilityManagerMessage { get; set; } = "<color=#FF0000>Owner: %owner%\nDepartment of Owner: Administrative</color>";
-
-        [Description("Message to show when the player holds a Chaos Insurgency keycard (string type)")]
-        public string ChaosInsurgencyMessage { get; set; } = "<color=#003B01>Owner: ???\nDepartment of Owner: ???</color>";
-
-        [Description("Message to show when the player holds an O5 keycard (string type)")]
-        public string O5Message { get; set; } = "<color=#000000>Owner: ???\nDepartment of Owner: ???</color>";
-
-        [Description("Duration of the hint message in seconds (int type)")]
+        public List<Dictionary<ItemType, string>> KeycardMessage = new List<Dictionary<ItemType, string>>
+        {
+            new Dictionary<ItemType, string>
+            {
+                {ItemType.KeycardJanitor, "<color=#B200FF>Owner: %owner%\nDepartment of Owner: Janitor</color>"},
+                {ItemType.KeycardScientist, "<color=#F9FF71>Owner: %owner%\nDepartment of Owner: Scientific</color>"},
+                {ItemType.KeycardZoneManager, "<color=#00FF0C>Owner: %owner%\nDepartment of Owner: Administritive</color>"},
+                {ItemType.KeycardResearchCoordinator, "<color=#F3FF00>Owner: %owner%\nDepartment of Owner: Scientific</color>"},
+                {ItemType.KeycardContainmentEngineer, "<color=#AD7B36>Owner: %owner%\nDepartment of Owner: Scientific/Techinician</color>"},
+                {ItemType.KeycardGuard, "<color=#5D5D5D>Owner: %owner%\nDepartment of Owner: OSS</color>"},
+                {ItemType.KeycardMTFPrivate, "<color=#00FBFF>Owner: %owner%\nDepartment of Owner: MTF</color>"},
+                {ItemType.KeycardMTFOperative, "<color=#0087FF>Owner: %owner%\nDepartment of Owner: MTF</color>"},
+                {ItemType.KeycardMTFCaptain, "<color=#002BFF>Owner: %owner%\nDepartment of Owner: MTF</color>"},
+                {ItemType.KeycardFacilityManager, "<color=#FF0000>Owner: %owner%\nDepartment of Owner: Administrative</color>"},
+                {ItemType.KeycardChaosInsurgency, "<color=#003B01>Owner: ???\nDepartment of Owner: ???</color>"},
+                {ItemType.KeycardO5, "<color=#000000>Owner: ???\nDepartment of Owner: ???</color>"},
+            },
+        };
         public int HintDuration { get; set; } = 5;
     }
 }

@@ -89,6 +89,12 @@ namespace MyPlugin.CustomItems
                             foreach (float LateDuration in CustomItemEffectAddLateDuration)
                                 Timing.CallDelayed(LateDuration, () => ev.Player.EnableEffect(GiveEffect, EffectIntensity, EffectTime, EffectAddDuration));
             }
+
+            for (var i = 0; i < CustomItemEffectTime.Length; i++)
+            {
+                
+            }
+            
             //new Effect(EffectType, float, int, byte)
         }
 
