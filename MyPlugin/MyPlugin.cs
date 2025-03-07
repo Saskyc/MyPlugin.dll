@@ -16,6 +16,7 @@ using System.Runtime.InteropServices;
 using Exiled.Events;
 //using MyPlugin.CustomThings;
 using Exiled.Events.EventArgs.Player;
+using MyPlugin.EventHandlers;
 
 namespace MyPlugin
 {
@@ -36,24 +37,12 @@ namespace MyPlugin
         public Dictionary<string, string> SomeElement = new();
         public Dictionary<Player, int> BinCooldown = new();
         public static MyPlugin Instance;
-        public override Exiled.API.Enums.PluginPriority Priority { get; } = Exiled.API.Enums.PluginPriority.Low;
         public override void OnEnabled()
         {
             Instance = this;
             Exiled.CustomItems.API.Features.CustomItem.RegisterItems();
             Exiled.CustomRoles.API.Features.CustomRole.RegisterRoles(false, null);
-            //Keycardss.RegisterEvents;
-            //ServerEv.RoundStarted += _eventHandlers.OnRoundStart;
-            //Server.Render += _eventHandlers.OnRender;
-            //OnRender
-            //Exiled.Events.Handlers.Player.UsingItem += Keycardss.OnUsingItem;
-            
-
-            Log.Info("*********************************************");
-            Log.Info(" You are using MyPlugin.dll the most epic plugin");
-            Log.Info("        This plugin is epic by Saskus");
-            Log.Info("*********************************************");
-            Log.Info(">> Join epic discord: https://discord.gg/9R8RPE4fws <<");
+            PlayerEv.Subscribe();
             base.OnEnabled();
         }
 
@@ -62,7 +51,7 @@ namespace MyPlugin
             Instance = null;
             Exiled.CustomItems.API.Features.CustomItem.UnregisterItems();
             Exiled.CustomRoles.API.Features.CustomRole.UnregisterRoles();
-            //Exiled.Events.Handlers.Player.UsingItem -= Keycardss.OnUsingItem;
+            PlayerEv.Unsubscribe();
             base.OnDisabled();
             //ChangingItem
         }

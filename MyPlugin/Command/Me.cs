@@ -12,12 +12,11 @@ namespace MyPlugin.Command
     [CommandHandler(typeof(ClientCommandHandler))]
     public class Me : ICommand
     {
-
-        public string Command { get; } = MyPlugin.Instance.Config.Emotes.CommandName;
+        public string Command { get; } = MyPlugin.Instance.Config.emotes.CommandName;
         
-        public string[] Aliases { get; } = {MyPlugin.Instance.Config.Emotes.CommandAlias};
+        public string[] Aliases { get; } = {MyPlugin.Instance.Config.emotes.CommandAlias};
         
-        public string Description { get; } = MyPlugin.Instance.Config.Emotes.CommandDescription;
+        public string Description { get; } = MyPlugin.Instance.Config.emotes.CommandDescription;
         
         public bool Execute(ArraySegment<string> arguments, ICommandSender sender, out string response)
         {
@@ -38,7 +37,7 @@ namespace MyPlugin.Command
                 var schematicsDir = Path.Combine(Paths.Configs, "MapEditorReborn", "Schematics");
                 var builder = new StringBuilder();
 
-                builder.Append(MyPlugin.Instance.Config.Emotes.ListOfAnimations);
+                builder.Append(MyPlugin.Instance.Config.emotes.ListOfAnimations);
 
                 foreach (var directoryPath in Directory.GetDirectories(schematicsDir))
                 {
@@ -54,7 +53,7 @@ namespace MyPlugin.Command
                         builder.Append($"- {fileNameWithoutExtension}");
                     }
                 }
-                response = $"{MyPlugin.Instance.Config.Emotes.EmptyAnwer}\n\n{builder}: ";
+                response = $"{MyPlugin.Instance.Config.emotes.EmptyAnwer}\n\n{builder}: ";
                 return false;
             }
 
@@ -63,7 +62,7 @@ namespace MyPlugin.Command
             
             MapUtils.GetSchematicDataByName(myArguments);
 
-            foreach (var permissionCheckInDictionary in MyPlugin.Instance.Config.Emotes.Permission)
+            foreach (var permissionCheckInDictionary in MyPlugin.Instance.Config.emotes.Permission)
             {
                 var exitLoop = false;
 
@@ -78,7 +77,7 @@ namespace MyPlugin.Command
 
                 if (!exitLoop)
                 {
-                    response = MyPlugin.Instance.Config.Emotes.NoPermission;
+                    response = MyPlugin.Instance.Config.emotes.NoPermission;
                     return false;
                 }
             }
@@ -88,7 +87,7 @@ namespace MyPlugin.Command
             
             MyPlugin.Instance.SchematicsToDestroyCommand[player] = mySchematicsVar;
             
-            response = $"{MyPlugin.Instance.Config.Emotes.PlayedAnimation}\n{laterArgumentUsage}";
+            response = $"{MyPlugin.Instance.Config.emotes.PlayedAnimation}\n{laterArgumentUsage}";
             return true;
         }
     }
