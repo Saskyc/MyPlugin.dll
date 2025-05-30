@@ -1,6 +1,9 @@
 # MyPlugin.dll
 ![GitHub Downloads (all assets, all releases)](https://img.shields.io/github/downloads/Saskyc/MyPlugin.dll/total) ![GitHub Release](https://img.shields.io/github/v/release/Saskyc/MyPlugin.dll)
 
+### Download before using
+https://github.com/Michal78900/ProjectMER
+
 ### Description
 MyPlugin is aimed at bringing some RP features for players.
 I might want to add later pickups that will change you to some role
