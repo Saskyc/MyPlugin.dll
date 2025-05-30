@@ -5,6 +5,7 @@ using UnityEngine;
 using MEC;
 using PlayerRoles;
 using Exiled.API.Enums;
+using MyPlugin.API;
 using Exiled.CustomItems.API.Features;
 
 namespace MyPlugin.Roles
@@ -13,6 +14,8 @@ namespace MyPlugin.Roles
     public class SCP035 : CustomRole
     {
         //public int Chance { get; set; } = 0;
+
+        public StartTeam StartTeam { get; set; } = StartTeam.Scp;
 
         public override uint Id { get; set; } = 129;
 
