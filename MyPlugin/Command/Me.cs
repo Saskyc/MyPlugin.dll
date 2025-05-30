@@ -4,9 +4,8 @@ using System;
 using System.IO;
 using CommandSystem;
 using Exiled.API.Features;
-using ProjectMER.Features.Objects;
-using ProjectMER.Features;
-using ProjectMER.Features.Serializable.Schematics;
+using MapEditorReborn.API.Features;
+using MapEditorReborn.API.Features.Objects;
 
 namespace MyPlugin.Command
 {
@@ -58,31 +57,35 @@ namespace MyPlugin.Command
                 return false;
             }
 
-            var argumentsProvided = string.Join(" ", arguments);
+            var myArguments = string.Join(" ", arguments);
             var laterArgumentUsage = string.Join(" ", arguments);
             
-            MapUtils.GetSchematicDataByName(argumentsProvided);
+            MapUtils.GetSchematicDataByName(myArguments);
 
             foreach (var permissionCheckInDictionary in MyPlugin.Instance.Config.emotes.Permission)
             {
-                var permission = permissionCheckInDictionary.Any(permission =>
-                                                                    argumentsProvided.Contains(permission.Key)
-                                                                    && player.Role.Type == permission.Value
-                                                                    || argumentsProvided.Contains("NONE")
-                                                                );
-                if (!permission)
+                var exitLoop = false;
+
+                foreach (var permission in permissionCheckInDictionary)
+                {
+                    if (!(myArguments.Contains(permission.Key) && player.Role.Type == permission.Value ||
+                          myArguments.Contains("NONE"))) continue;
+                    
+                    exitLoop = true;
+                    break;
+                }
+
+                if (!exitLoop)
                 {
                     response = MyPlugin.Instance.Config.emotes.NoPermission;
                     return false;
                 }
             }
-
-
-            var spawnedSchematic = ObjectSpawner.SpawnSchematic(argumentsProvided, player.Position, player.Rotation, player.Scale);
-            //var mySchematicsVar = ObjectSpawner.SpawnSchematic(myArguments, player.Position, player.Rotation, player.Scale, null!, false);
-            spawnedSchematic.transform.parent = player.Transform;
             
-            MyPlugin.Instance.SchematicsToDestroyCommand[player] = spawnedSchematic;
+            var mySchematicsVar = ObjectSpawner.SpawnSchematic(myArguments, player.Position, player.Rotation, player.Scale, null!, false);
+            mySchematicsVar.transform.parent = player.Transform;
+            
+            MyPlugin.Instance.SchematicsToDestroyCommand[player] = mySchematicsVar;
             
             response = $"{MyPlugin.Instance.Config.emotes.PlayedAnimation}\n{laterArgumentUsage}";
             return true;
